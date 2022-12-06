@@ -9,7 +9,6 @@ int main(int argc, char * argv[]){
     int ch;
     char *buffer;
     size_t bsize = 128;
-    size_t characters;
     char *dirBuffer;
     FILE *fp;
 
@@ -31,7 +30,7 @@ int main(int argc, char * argv[]){
 
     }
 
-     buffer = (char *)malloc(bsize * sizeof(char));
+    buffer = (char *)malloc(bsize * sizeof(char));
 
         if (buffer == NULL)
         {
@@ -41,7 +40,7 @@ int main(int argc, char * argv[]){
 
         printf("Go ahead: ");
 
-        characters = getline(&buffer, &bsize, stdin);
+        getline(&buffer, &bsize, stdin);
 
     for (int i = optind; i < argc; i++)     //for each user input
     {
