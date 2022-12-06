@@ -31,18 +31,7 @@ int main(int argc, char * argv[]){
 
     }
 
-    for (int i = optind; i < argc; i++)     //for each user input
-    {
-        fp = fopen(argv[i], "w");
-
-        if(fp == NULL) 
-        {
-        printf("file can't be opened\n");
-        exit(1);
-        }
-
-        
-        buffer = (char *)malloc(bsize * sizeof(char));
+     buffer = (char *)malloc(bsize * sizeof(char));
 
         if (buffer == NULL)
         {
@@ -53,6 +42,16 @@ int main(int argc, char * argv[]){
         printf("Go ahead: ");
 
         characters = getline(&buffer, &bsize, stdin);
+
+    for (int i = optind; i < argc; i++)     //for each user input
+    {
+        fp = fopen(argv[i], "w");
+
+        if(fp == NULL) 
+        {
+        printf("file can't be opened\n");
+        exit(1);
+        }
 
         fputs(buffer, fp);
 
