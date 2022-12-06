@@ -6,6 +6,7 @@
 #include<errno.h>
 
 int main(int argc, char * argv[]){
+    int ch;
     char *buffer;
     size_t bsize = 128;
     size_t characters;
@@ -18,7 +19,7 @@ int main(int argc, char * argv[]){
         {
             case 'p':        //if -p, change boolean to 1.
 
-                pflag = 1;
+                //pflag = 1;
 
                 break;
 
@@ -32,7 +33,7 @@ int main(int argc, char * argv[]){
 
     for (int i = optind; i < argc; i++)     //for each user input
     {
-        fp = fopen("argv[i]", "w");
+        fp = fopen(argv[i], "w");
 
         if(fp == NULL) 
         {
@@ -53,7 +54,7 @@ int main(int argc, char * argv[]){
 
         characters = getline(&buffer, &bsize, stdin);
 
-        fputs(characters, fp);
+        fputs(buffer, fp);
 
         fclose(fp);
 
